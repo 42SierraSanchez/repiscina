@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 19:46:07 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/28 21:27:37 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 22:38:44 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 			dest[i] = src[i];
 			i++;
 		}
-	dest[size - 1] = '\0';
+	dest[i] = '\0';
 	}
 	return (ft_strlen(src));
 }
@@ -42,7 +42,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 int	main(int argc, char **argv)
 {
 	unsigned int	size;
-	char			dest[size];
+	char			dest[sizeof(argv[1])];
 
 	if (argc != 2)
 		return (printf("You must use only one argument\n"));
