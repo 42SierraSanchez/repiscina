@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 14:01:50 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/26 03:34:39 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 14:27:22 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putnbr(int nb)
 {
-	long int lnb;
-	char c;
-	
+	long int	lnb;
+	char		c;
+
 	lnb = nb;
 	if (lbn < 0)
 	{
