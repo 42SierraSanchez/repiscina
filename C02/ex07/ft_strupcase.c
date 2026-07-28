@@ -19,7 +19,7 @@ char	*ft_strupcase(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (i[srt] >= 97 && i[str] <= 122)
+		if (i[str] >= 97 && i[str] <= 122)
 			str[i] -= 32;
 		i++;
 	}
