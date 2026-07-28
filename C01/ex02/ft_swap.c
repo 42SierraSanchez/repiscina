@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 21:14:29 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/26 04:47:19 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 14:05:29 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ void	ft_swap(int *a, int *b)
 {
 	int	buf;
 
-	buf = a;
-	a = b;
-	b = buf;
+	buf = *a;
+	*a = *b;
+	*b = buf;
 }

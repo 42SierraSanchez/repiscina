@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 22:26:59 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/27 23:08:14 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 14:08:55 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_sort_int_tab(int *tab, int size)
 	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
 	while (j < size)
 	{
+		i = 0;
 		while (i < size - 1 - j)
 		{
 			if (tab[i] > tab[i + 1])
@@ -32,7 +32,6 @@ void	ft_sort_int_tab(int *tab, int size)
 			}
 			i++;
 		}
-		i = 0;
 		j++;
 	}
 }

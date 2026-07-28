@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/24 23:29:36 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/28 14:07:09 by asierra          ###   ########.fr       */
+/*   Created: 2026/07/24 21:14:29 by asierra           #+#    #+#             */
+/*   Updated: 2026/07/28 14:05:22 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_div_mod(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-	int	buffa;
-	int	buffb;
+	int	buf;
 
-	buffa = *a;
-	buffb = *b;
-	*a = buffa / buffb;
-	*b = buffa % buffb;
+	buf = *a;
+	*a = *b;
+	*b = buf;
 }
-/* int main(void)
-{
-	int	a[1];
-	int	b[1];
-
-	*a = 10;
-	*b = 5;
-	printf("a:%d, b:%d", *a, *b);
-	return(0);
-}
-*/
