@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 22:06:59 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/26 23:00:39 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 14:47:04 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strlowcase(char *str)
 	i = 0;
 	while (str[i])
 	{
-		printf("%c\n", i[str]);
-		printf("%d\n", i);
 		if (i[srt] >= 65 && i[str] <= 90)
 			str[i] += 32;
 		i++;

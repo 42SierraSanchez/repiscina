@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 15:15:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/27 15:18:07 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 14:45:58 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_str_is_printable(char *str)
 {
 	if (!str[0])
 		return (1);
-	if (!(str[0] >= 32 && str[0] <= 127))
+	if (!(str[0] >= 32 && str[0] <= 126))
 		return (0);
 	return (ft_str_is_printable(str + 1));
 }

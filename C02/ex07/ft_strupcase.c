@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 23:01:34 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/26 23:02:38 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 14:46:38 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strupcase(char *str)
 	i = 0;
 	while (str[i])
 	{
-		printf("%c\n", i[str]);
-		printf("%d\n", i);
 		if (i[srt] >= 97 && i[str] <= 122)
 			str[i] -= 32;
 		i++;
