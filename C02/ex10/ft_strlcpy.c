@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 19:46:07 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/28 17:16:23 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/28 21:27:37 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 			dest[i] = src[i];
 			i++;
 		}
-	}
 	dest[size - 1] = '\0';
+	}
 	return (ft_strlen(src));
 }
 
