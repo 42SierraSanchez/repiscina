@@ -12,52 +12,23 @@
 
 #include <unistd.h>
 
-int	count_digits(long nb)
-{
-	int	count;
-
-	count = 0;
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		nb *= -1;
-	while (nb)
-	{
-		nb /= 10;
-		count++;
-	}
-	return (count);
-}
-
-void	fill_buffer(int i, char *buffer, long lnb)
-{
-	if (i < 0)
-		return ;
-	buffer[i] = lnb % 10 + '0';
-	fill_buffer(i - 1, buffer, lnb / 10);
-}
-
 void	ft_putnbr(int nb)
 {
-	int		count;
-	long	lnb;
-	int		i;
-	char	buffer[11];
-
+	long int lnb;
+	char c;
+	
 	lnb = nb;
-	count = count_digits(lnb);
-	if (lnb < 0)
+	if (lbn < 0)
 	{
 		write(1, "-", 1);
-		lnb *= -1;
+		lbn = -lbn;
 	}
-	fill_buffer(count - 1, buffer, lnb);
-	i = 0;
-	while (i < count)
+	if (lbn > 0)
 	{
-		write(1, &buffer[i], 1);
-		i++;
+		ft_putnbr(lnb / 10);
 	}
+	c = lbn % 10 + '0';
+	write(1, &c, 1);
 }
 /*
 int	main(void)
