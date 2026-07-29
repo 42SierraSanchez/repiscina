@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 23:08:39 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/29 14:27:51 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/29 14:48:21 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,34 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	char_non_print(char c)
+int	is_non_print(char c)
 {
-	if (c >= 32 && c <= 126)
-		return (0);
-	return(1);
+	return (c >= 32 && c <= 126);
+}
+void put_non_print_char(char c, char *base)
+{
+	ft_putchar('\\');
+	ft_putchar(base[c / 16]);
+	ft_putchar(base[c % 16]);
 }
 
-void	print_non_print(char *str, char *base)
+void	print_str(char *str, char *base)
 {
-	if (!str[0])
-	{
-		return;
-	}
-	if (char_non_print(str[0]))
-	{
-		ft_putchar('\\');
-		ft_putchar(base[str[0] / 16]);
-		ft_putchar(base[str[0] % 16]);
-	}	
-	else 
-		ft_putchar(str[0]);
-	print_non_print(&str[1], base);
+	if (!str)
+		return ;
+	if (is_non_print(*str))
+		put_non_print_char(*str, base);
+	else
+		ft_putchar(*str);
+	print_str(str + 1, base);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	print_non_print(str, "0123456789abcdef");
+	print_str(str, "0123456789abcdef");
 }
 
-/*
+
 #include <stdio.h>
 
 int	main(void)
@@ -55,4 +53,5 @@ int	main(void)
 	putchar('\n');
 	return (0);
 }
-*/
+
+
