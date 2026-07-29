@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 23:08:39 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/29 14:48:21 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/29 14:52:18 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	is_non_print(char c)
+int	is_print(char c)
 {
 	return (c >= 32 && c <= 126);
 }
+
 void put_non_print_char(char c, char *base)
 {
 	ft_putchar('\\');
@@ -30,9 +31,9 @@ void put_non_print_char(char c, char *base)
 
 void	print_str(char *str, char *base)
 {
-	if (!str)
+	if (!*str)
 		return ;
-	if (is_non_print(*str))
+	if (!is_non_print(*str))
 		put_non_print_char(*str, base);
 	else
 		ft_putchar(*str);
