@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 23:08:39 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/29 13:53:46 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/29 14:27:51 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int	char_non_print(char c)
 
 void	print_non_print(char *str, char *base)
 {
+	if (!str[0])
+	{
+		return;
+	}
 	if (char_non_print(str[0]))
 	{
 		ft_putchar('\\');
@@ -34,8 +38,7 @@ void	print_non_print(char *str, char *base)
 	}	
 	else 
 		ft_putchar(str[0]);
-	if (str[0])
-		print_non_print(&str[1], base);
+	print_non_print(&str[1], base);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -43,14 +46,13 @@ void	ft_putstr_non_printable(char *str)
 	print_non_print(str, "0123456789abcdef");
 }
 
+/*
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc != 2)
-		return (printf("You must use only one argument\n"));
-	printf("original is : %s\n\n non print is: \n", argv[1]);
-	ft_putstr_non_printable(argv[1]);
-	printf("\n");
+	ft_putstr_non_printable("HOLA \n \b ADIOS \0 esto no lo vas a leer");
+	putchar('\n');
 	return (0);
 }
+*/
