@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 23:08:39 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/29 15:02:14 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/29 15:39:09 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_putstr_non_printable(char *str)
 	ft_putstr_non_printable(str + 1);
 }
 /*
-#include <stdio.h>
 
 int	main(void)
 {
