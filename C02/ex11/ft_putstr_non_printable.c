@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 23:08:39 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/29 14:52:55 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/29 15:00:09 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,32 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	is_print(char c)
+int	is_printable(char c)
 {
 	return (c >= 32 && c <= 126);
 }
 
-void put_non_print_char(char c, char *base)
+void	put_non_print_char(unsigned char c)
 {
-	ft_putchar('\\');
-	ft_putchar(base[c / 16]);
-	ft_putchar(base[c % 16]);
-}
+	char	*hex_base;
 
-void	print_str(char *str, char *base)
-{
-	if (!*str)
-		return ;
-	if (!is_print(*str))
-		put_non_print_char(*str, base);
-	else
-		ft_putchar(*str);
-	print_str(str + 1, base);
+	hex_base = "0123456789abcdef";
+	ft_putchar('\\');
+	ft_putchar(hex_base[c / 16]);
+	ft_putchar(hex_base[c % 16]);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	print_str(str, "0123456789abcdef");
+	if (!*str)
+		return ;
+	if (!is_printable(*str))
+		put_non_print_char(*str);
+	else
+		ft_putchar(*str);
+	print_str(str + 1, base);
 }
-
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -54,5 +51,4 @@ int	main(void)
 	putchar('\n');
 	return (0);
 }
-
-
+*/
