@@ -40,7 +40,7 @@ void	ft_putstr_non_printable(char *str)
 		put_non_printable(*str);
 	else
 		ft_putchar(*str);
-	ft_putstr_non_printable(str + 1, base);
+	ft_putstr_non_printable(str + 1);
 }
 /*
 #include <stdio.h>
