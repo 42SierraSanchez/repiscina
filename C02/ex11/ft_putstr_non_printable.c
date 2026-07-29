@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 23:08:39 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/29 15:00:09 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/29 15:02:14 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	is_printable(char c)
 	return (c >= 32 && c <= 126);
 }
 
-void	put_non_print_char(unsigned char c)
+void	put_non_printable(unsigned char c)
 {
 	char	*hex_base;
 
@@ -37,10 +37,10 @@ void	ft_putstr_non_printable(char *str)
 	if (!*str)
 		return ;
 	if (!is_printable(*str))
-		put_non_print_char(*str);
+		put_non_printable(*str);
 	else
 		ft_putchar(*str);
-	print_str(str + 1, base);
+	ft_putstr_non_printable(str + 1, base);
 }
 /*
 #include <stdio.h>
