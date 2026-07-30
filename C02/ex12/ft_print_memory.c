@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 17:21:13 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/30 17:31:54 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ void	ft_print_hex_line(unsigned char *byte_str, unsigned int count,
 
 void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 {
-	if (!*str)
+	if (size <= 0)
 		return ;
 	if (!is_printable(*str))
 		ft_putchar('.');
 	else
 		ft_putchar(*str);
-	ft_putstr_non_printable(str + 1, size);
+	ft_putstr_non_printable(str + 1, size - 1);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
@@ -67,11 +67,11 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	{
 		while(i < 16)
 		{
-			ft_putchar(&&&addr + i);
+			ft_putchar(*(unsigned char)addr + i);
 		i++;
 		}
-		ft_putchar(' ');
 		ft_putchar(':');
+		ft_putchar(' ');
 		ft_print_hex_line(byte_str, 0, size);
 		ft_putchar(' ');
 		ft_putstr_non_printable(byte_str, size);
@@ -84,6 +84,6 @@ int	main(void)
 {
 	char	*test;
 
-	test = "Bonjour les\namin";
+	test = "Bonjour\0les\namin";
 	ft_print_memory(test, 16);
 }
