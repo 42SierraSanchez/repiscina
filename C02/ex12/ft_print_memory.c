@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 18:35:36 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/30 19:29:09 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_print_hex_addr(unsigned int addr, unsigned int cont)
 	hex_base = "0123456789abcdef";
 	if (cont >= 16)
 		return ;
-	ft_putchar(hex_base[addr / 16]);
 	ft_putchar(hex_base[addr % 16]);
 	ft_print_hex_addr(addr / 10, cont + 1);
 }
