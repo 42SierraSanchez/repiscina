@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 21:05:54 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/30 21:17:07 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,17 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	unsigned char	*byte_str;
 	unsigned long	addr_nb;
 	int				line_size;
-	int	signed_size;
 
 	if (size <= 0)
 		return (addr);
-	signed_size = (long)size;
 	addr_nb = (unsigned long)addr;
 	byte_str = (unsigned char *)addr;
-	while (signed_size > 0)
+	while (size > 0)
 	{
-		if (signed_size > 16)
+		if (size > 16)
 			line_size = 16;
 		else
-			line_size = signed_size;
+			line_size = size;
 		ft_print_hex_addr(addr_nb, 0);
 		ft_putchar(':');
 		ft_putchar(' ');
@@ -83,9 +81,9 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		ft_putchar(' ');
 		ft_putstr_non_printable(byte_str, line_size);
 		ft_putchar('\n');
-		byte_str += 16;
-		addr_nb += 16;
-		signed_size -= 16;
+		byte_str += line_size;
+		addr_nb += line_size;
+		size -= line_size;
 	}
 	return (addr);
 }
