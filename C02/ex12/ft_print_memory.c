@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 15:28:46 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/30 15:36:29 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	ft_printmem(unsigned char *byte_str, unsigned int count,
 	}
 	else
 		write(1, "  ", 2);
-	if (count > 0 && count < 14 && (count % 2))
+	if (count < 14 && (count % 2))
 		ft_putchar(' ');
-	ft_printmem(byte_str + 1, count + 1, size);
+	ft_printmem(byte_str, count + 1, size);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
@@ -47,7 +47,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	unsigned char	*byte_str;
 
 	byte_str = (unsigned char *)addr;
-	ft_printmem(byte_str, 0, size);
+	if (size)
+		ft_printmem(byte_str, 0, size);
 	return (addr);
 }
 
