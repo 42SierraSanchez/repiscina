@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 13:14:17 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/30 13:24:12 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@ int	is_printable(char c)
 
 void	ft_printmem(unsigned char *byte_str, unsigned int count, unsigned int size)
 {
+	char *hex_base;
+	hex_base = "0123456789abcdef";
+
 	if (!byte_str || count >= size)
 		return ;
-	ft_putchar(*byte_str);
+	ft_putchar(hex_base[*byte_str / 16]);
+	ft_putchar(hex_base[*byte_str % 16]);
+/*	if (count > 0 && (count % 2))
+		ft_putchar(' ');*/
 	ft_printmem(byte_str + 1, count + 1, size);
 }
 
