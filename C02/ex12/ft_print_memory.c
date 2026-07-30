@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 19:29:09 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/30 19:51:02 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,15 @@ void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 	ft_putstr_non_printable(str + 1, size - 1);
 }
 
-void	ft_print_hex_addr(unsigned int addr, unsigned int cont)
+void	ft_print_hex_addr(unsigned long addr, unsigned int cont)
 {
 	const char	*hex_base;
 
 	hex_base = "0123456789abcdef";
 	if (cont >= 16)
 		return ;
+	ft_print_hex_addr(addr / 16, cont + 1);
 	ft_putchar(hex_base[addr % 16]);
-	ft_print_hex_addr(addr / 10, cont + 1);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
@@ -76,7 +76,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	byte_str = (unsigned char *)addr;
 	if (size)
 	{
-		ft_print_hex_addr(*(unsigned int)addr, 8);
+		ft_print_hex_addr((unsigned long)addr, 0);
 		ft_putchar(':');
 		ft_putchar(' ');
 		ft_print_hex_line(byte_str, 0, size);
