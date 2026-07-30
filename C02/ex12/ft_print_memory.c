@@ -6,28 +6,22 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 19:51:02 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/30 20:19:23 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+static const char	*hex_base = "0123456789abcdef";
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-int	is_printable(char c)
-{
-	return (c >= 32 && c <= 126);
-}
-
 void	ft_print_hex_line(unsigned char *byte_str, unsigned int count,
 		unsigned int size)
 {
-	const char	*hex_base;
-
-	hex_base = "0123456789abcdef";
 	if (count >= 16)
 		return ;
 	if (count < size)
@@ -49,7 +43,7 @@ void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 {
 	if (size <= 0)
 		return ;
-	if (!is_printable(*str))
+	if (*str >= 32 && *str <= 126)
 		ft_putchar('.');
 	else
 		ft_putchar(*str);
@@ -58,9 +52,6 @@ void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 
 void	ft_print_hex_addr(unsigned long addr, unsigned int cont)
 {
-	const char	*hex_base;
-
-	hex_base = "0123456789abcdef";
 	if (cont >= 16)
 		return ;
 	ft_print_hex_addr(addr / 16, cont + 1);
@@ -74,7 +65,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 	i = 0;
 	byte_str = (unsigned char *)addr;
-	if (size)
+	while (size)
 	{
 		ft_print_hex_addr((unsigned long)addr, 0);
 		ft_putchar(':');
@@ -83,6 +74,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		ft_putchar(' ');
 		ft_putstr_non_printable(byte_str, size);
 		ft_putchar('\n');
+		byte_str += 16;
+		size -=16;
 	}
 	return (addr);
 }
@@ -91,6 +84,6 @@ int	main(void)
 {
 	char	*test;
 
-	test = "Bonjour\0les\namin";
-	ft_print_memory(test, 16);
+	test = "Bonjour\0les\namin Grita DEVASTACION! y suelta a los perros de la guerra";
+	ft_print_memory(test, 40);
 }
