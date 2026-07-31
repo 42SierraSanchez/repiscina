@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/31 08:42:13 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/31 08:49:57 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	unsigned char	*byte_str;
 	int				line_size;
 
-	if (size <= 0)
-		return (addr);
 	byte_str = (unsigned char *)addr;
 	while (size > 0)
 	{
@@ -89,6 +87,6 @@ int	main(void)
 {
 	char	*test;
 
-	test = "Bonjour\0les\namin Grita DEVASTACION! y suelta a los perros de la guerra";
+	test = "Grita\0<<¡DEVASTACION!>>\ny suelta a\blos\aperros de la guerra";
 	ft_print_memory(test, 40);
 }
