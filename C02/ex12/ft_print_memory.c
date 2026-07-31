@@ -6,13 +6,13 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/31 09:16:01 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/31 09:32:28 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static const char	*g_hex_base = "0123456789abcdef";
+static const char	g_hex_base[] = "0123456789abcdef";
 
 void	ft_putchar(char c)
 {
