@@ -6,13 +6,13 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/31 08:49:57 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/31 09:16:01 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static const char	*hex_base = "0123456789abcdef";
+static const char	*g_hex_base = "0123456789abcdef";
 
 void	ft_putchar(char c)
 {
@@ -26,8 +26,8 @@ void	ft_print_hex_line(unsigned char *byte_str, unsigned int count,
 		return ;
 	if (count < size)
 	{
-		ft_putchar(hex_base[*byte_str / 16]);
-		ft_putchar(hex_base[*byte_str % 16]);
+		ft_putchar(g_hex_base[*byte_str / 16]);
+		ft_putchar(g_hex_base[*byte_str % 16]);
 	}
 	else
 		write(1, "  ", 2);
@@ -55,7 +55,7 @@ void	ft_print_hex_addr(unsigned long addr, unsigned int cont)
 	if (cont >= 16)
 		return ;
 	ft_print_hex_addr(addr / 16, cont + 1);
-	ft_putchar(hex_base[addr % 16]);
+	ft_putchar(g_hex_base[addr % 16]);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
@@ -82,11 +82,11 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
-
+/*
 int	main(void)
 {
 	char	*test;
 
 	test = "Grita\0<<¡DEVASTACION!>>\ny suelta a\blos\aperros de la guerra";
-	ft_print_memory(test, 40);
-}
+	ft_print_memory(test, 800);
+}*/
