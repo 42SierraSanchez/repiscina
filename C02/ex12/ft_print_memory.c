@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/30 21:17:07 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/31 08:33:06 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,23 @@ void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 	ft_putstr_non_printable(str + 1, size - 1);
 }
 
-void	ft_print_hex_addr(unsigned long addr, unsigned int cont)
+void	ft_print_hex_addr(unsigned char *byte_str, unsigned int cont)
 {
 	if (cont >= 16)
 		return ;
-	ft_print_hex_addr(addr / 16, cont + 1);
-	ft_putchar(hex_base[addr % 16]);
+	ft_print_hex_addr(byte_str / 16, cont + 1);
+	ft_putchar(hex_base[*byte_str % 16]);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned char	*byte_str;
-	unsigned long	addr_nb;
+	//unsigned long	addr_nb;
 	int				line_size;
 
 	if (size <= 0)
 		return (addr);
-	addr_nb = (unsigned long)addr;
+	//addr_nb = (unsigned long)addr;
 	byte_str = (unsigned char *)addr;
 	while (size > 0)
 	{
@@ -74,7 +74,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 			line_size = 16;
 		else
 			line_size = size;
-		ft_print_hex_addr(addr_nb, 0);
+		ft_print_hex_addr(byte_str, 0);
 		ft_putchar(':');
 		ft_putchar(' ');
 		ft_print_hex_line(byte_str, 0, line_size);
@@ -82,7 +82,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		ft_putstr_non_printable(byte_str, line_size);
 		ft_putchar('\n');
 		byte_str += line_size;
-		addr_nb += line_size;
+	//	addr_nb += line_size;
 		size -= line_size;
 	}
 	return (addr);
