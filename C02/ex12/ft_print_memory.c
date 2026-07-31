@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/31 09:32:28 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/31 10:22:17 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+void	ft_print_hex_addr(unsigned long addr, unsigned int cont)
+{
+	if (cont >= 16)
+		return ;
+	ft_print_hex_addr(addr / 16, cont + 1);
+	ft_putchar(g_hex_base[addr % 16]);
+}
 void	ft_print_hex_line(unsigned char *byte_str, unsigned int count,
 		unsigned int size)
 {
@@ -41,7 +48,7 @@ void	ft_print_hex_line(unsigned char *byte_str, unsigned int count,
 
 void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 {
-	if (size <= 0)
+	if (!size)
 		return ;
 	if (*str < 32 || *str > 126)
 		ft_putchar('.');
@@ -50,21 +57,14 @@ void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 	ft_putstr_non_printable(str + 1, size - 1);
 }
 
-void	ft_print_hex_addr(unsigned long addr, unsigned int cont)
-{
-	if (cont >= 16)
-		return ;
-	ft_print_hex_addr(addr / 16, cont + 1);
-	ft_putchar(g_hex_base[addr % 16]);
-}
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned char	*byte_str;
-	int				line_size;
+	unsigned int	line_size;
 
 	byte_str = (unsigned char *)addr;
-	while (size > 0)
+	while (size)
 	{
 		if (size > 16)
 			line_size = 16;
@@ -83,10 +83,25 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	return (addr);
 }
 /*
+#include <stdio.h>
 int	main(void)
 {
 	char	*test;
 
 	test = "Grita\0<<¡DEVASTACION!>>\ny suelta a\blos\aperros de la guerra";
-	ft_print_memory(test, 800);
+	printf("Empiezan los tests:\n");
+	printf("Size = 0:\n");
+	ft_print_memory(test, 0);
+	printf("Size = 1:\n");
+	ft_print_memory(test, 1);
+	printf("Size = 15:\n");
+	ft_print_memory(test, 15);
+	printf("Size = 16:\n");
+	ft_print_memory(test, 16);
+	printf("Size = 17:\n");
+	ft_print_memory(test, 17);
+	printf("Size = 31:\n");
+	ft_print_memory(test, 31);
+	printf("Size = 32:\n");
+	ft_print_memory(test, 32);
 }*/
