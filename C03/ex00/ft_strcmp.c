@@ -6,30 +6,16 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 13:14:14 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/31 13:26:30 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/31 13:34:29 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	long int	i;
-	long int	s1v;
-	long int	s2v;
+	int	i;
 
-	s1v = 0;
-	s2v = 0;
-	while (s1[i])
-	{
-		s1v += s1[i];
-		i++;
-	}
 	i = 0;
-	while (s2[i])
-	{
-		s2v += s2[i];
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	}
-	return (s1v - s2v);
+	return (s1[i] - s2[i]);
 }
-
-
