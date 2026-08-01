@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 19:57:27 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 20:15:59 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	valid_pos(char *str)
 	return (0);
 }
 
-int	valid_format(char *str)
+int	valid_arg(char *str)
 {
 	if (valid_chars(str))
 		return (1);
@@ -194,9 +194,9 @@ int	pos_is_valid(int tab[4][4], int pos)
 	if (!is_col_valid(tab, pos))
 		return (0);
 	// if (pos % 4 == 3)
-	if (pos == 16)
+	//if (pos == 16)
 		// if (!validate_clues(tab, pos))
-		return (0);
+		//return (0);
 	return (1);
 }
 
@@ -266,6 +266,7 @@ void	init_tab(int tab[4][4])
 			tab[i][j] = 0;
 			j++;
 		}
+        j = 0;
 		i++;
 	}
 }
@@ -275,10 +276,14 @@ int	main(int argc, char **argv)
 	int tab[4][4];
 
 	if (argc != 2)
-		return (0);
-
+		    return (1);
+    if (!valid_arg(argv[1]))
+           return(1);
+    
 	num_en_pos(clues, argv[1]);
 	init_tab(tab);
 	print_tab(tab);
+    solve(tab, 0);
+    print_tab(tab);
 	return (0);
 }
