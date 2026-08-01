@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 20:15:59 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 20:24:06 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int	valid_chars(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if (!(str[i] == 32 || (str[i] >= 48 && str[i] <= 52)))
-			return (1);
+		if (!(str[i] == 32 || (str[i] >= '1' && str[i] <= '4')))
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	valid_length(char *str)
@@ -49,11 +49,11 @@ int	valid_length(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 		i++;
 	if (i != 31)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 int	valid_pos(char *str)
@@ -61,32 +61,32 @@ int	valid_pos(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (i % 2 == 0)
 		{
-			if (!(str[i] >= 48 && str[i] <= 57))
-				return (1);
+			if (!(str[i] >= '1' && str[i] <= '4'))
+				return (0);
 		}
 		else
 		{
 			if (str[i] != 32)
-				return (1);
+				return (0);
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	valid_arg(char *str)
 {
 	if (valid_chars(str))
-		return (1);
+		return (0);
 	if (valid_length(str))
-		return (1);
+		return (0);
 	if (valid_pos(str))
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 void	num_en_pos(int clues[16], char *str)
