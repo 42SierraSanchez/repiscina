@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 21:19:51 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 21:23:54 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,89 @@ int	is_col_valid(int tab[4][4], int pos)
 	}
 	return (1);
 }
+int	count_visible_row_left(int tab[4][4], int row)
+
+{
+	int i;
+	int count;
+	int max;
+	i = 0;
+	count = 0;
+	max = 0;
+	while (i < 4)
+	{
+		if (tab[row][i] > max)
+		{
+			max = tab[row][i];
+			count++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+int	count_visible_row_right(int tab[4][4], int row)
+
+{
+	int i;
+	int count;
+	int max;
+	i = 3;
+	count = 0;
+	max = 0;
+	while (i >= 0)
+	{
+		if (tab[row][i] > max)
+		{
+			max = tab[row][i];
+			count++;
+		}
+		i--;
+	}
+	return (count);
+}
+
+int	count_visible_col_bottom(int tab[4][4], int col)
+
+{
+	int i;
+	int count;
+	int max;
+	i = 3;
+	count = 0;
+	max = 0;
+	while (i >= 0)
+	{
+		if (tab[i][col] > max)
+		{
+			max = tab[i][col];
+			count++;
+		}
+		i--;
+	}
+	return (count);
+}
+int	count_visible_row_left(int tab[4][4], int row)
+
+{
+	int i;
+	int count;
+	int max;
+	i = 0;
+	count = 0;
+	max = 0;
+	while (i < 4)
+	{
+		if (tab[row][i] > max)
+		{
+			max = tab[row][i];
+			count++;
+		}
+		i++;
+	}
+	return (count);
+}
+
 int	pos_is_valid(int tab[4][4], int pos)
 {
 	if (!is_row_valid(tab, pos))
