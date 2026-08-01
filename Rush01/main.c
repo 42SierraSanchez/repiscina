@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
+/*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 08:24:43 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/01 17:02:18 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/01 17:52:59 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ pruebo un num
 
 
 */
-void fill_to_check(int **tab, int pos, int *to_check)
+void fill_to_check(int tab[4][4], int pos, int *to_check)
 {
 
 	int i;
@@ -68,12 +68,12 @@ void fill_to_check(int **tab, int pos, int *to_check)
 			{
 				
 			i++;	
-			}
+			}:
 			i = 0;
 		}
 }
 
-int validate_clues(tab, pos)
+int validate_clues(tab[4][4], pos)
 {
 	int to_check[]
 	fill_to_check()
@@ -81,7 +81,7 @@ int validate_clues(tab, pos)
 
 
 
-int pos_is_valid(int **tab, int pos)
+int pos_is_valid(int tab[4][4], int pos)
 {
 	if (!is_row_valid(tab,pos))
 			return(0);
@@ -95,7 +95,7 @@ int pos_is_valid(int **tab, int pos)
 
 }
 
-int	is_row_valid(int **tab, int pos)
+int	is_row_valid(int tab[4][4], int pos)
 {
 	int	i;
 
@@ -109,30 +109,31 @@ int	is_row_valid(int **tab, int pos)
 	return (1);
 }
 
-int	is_col_valid(int **tab, int *pos)
+int	is_col_valid(int tab[4][4], int pos)
 {
 	int	i;
 
 	i = (pos / 4) - 1;
 	while (i >= 0)
 	{
-		if (tab[pos / 4][pos % 4] == tab[i][pos / 4])
+		if (tab[pos / 4][pos % 4] == tab[i][pos % 4])
 			return (0);
 		i--;
 	}
 	return (1);
 }
 
-int count_visible_row_left(int **tab, int pos)
+int count_visible_row_left(int tab[4][4], int pos)
 {
 	int i;
 	int count;
+	int max;
 	i = 0;
 	count = 1;
+	max = 0;
+	
 		while (i < pos % 4)
 		{
-			if (tab[pos / 4][pos % 4] == 4)
-				break;
 			if (tab[pos / 4][i] < tab[pos / 4][i + 1])
 					count++;
 		i++;
@@ -140,7 +141,7 @@ int count_visible_row_left(int **tab, int pos)
 	return (count);
 }
 
-int count_visible_row_right(int **tab, int pos)
+int count_visible_row_right(int tab[4][4], int pos)
 {
 	int i;
 	int count;
@@ -157,7 +158,7 @@ int count_visible_row_right(int **tab, int pos)
 	return (count);
 }
 
-int count_visible_col_bottom(int **tab, int pos)
+int count_visible_col_bottom(int tab[4][4], int pos)
 {
 	int i;
 	int count;
@@ -174,7 +175,7 @@ int count_visible_col_bottom(int **tab, int pos)
 	return (count);
 }
 
-int count_visible_col_top(int **tab, int pos)
+int count_visible_col_top(int tab[4][4], int pos)
 {
 	int i;
 	int count;
@@ -192,7 +193,7 @@ int count_visible_col_top(int **tab, int pos)
 }
 
 
-int	solve(int **tab, int *clues, int pos)
+int	solve(int tab[4][4], int *clues, int pos)
 {
 	int	try;
 
@@ -209,6 +210,24 @@ int	solve(int **tab, int *clues, int pos)
 		try++;
 	}
 	return (0);
+}
+
+void init_tab(int tab[4][4])
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (i <= 3)
+	{
+		while (j <= 3)
+		{	
+			tab[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
