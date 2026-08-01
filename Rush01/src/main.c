@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 22:02:49 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 22:10:52 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,31 +234,25 @@ int	count_visible_col_top(int tab[4][4], int col)
 	return (count);
 }
 
-int	validate_col_clues(int tab[4][4], int row, int *clues)
+int	validate_row_clues(int tab[4][4], int row, int *clues)
 {
-    int i;
-    i = 0;
-    while (i < 3)
-	{
-        if (!(count_visible_row_top(tab, row) == clues[i + 8]))
+
+        if (!(count_visible_row_left(tab, row) == clues[8 + row]))
             return(0);
-        if (!(count_visible_row_bottom(tab, row) == clues[i + 12]))
+        if (!(count_visible_row_right(tab, row) == clues[12 + row]))
             return(0);
-        i++;
-    }
+        
+        return(1);
 }
 int	validate_col_clues(int tab[4][4], int col, int *clues)
 {
-    int i;
-    i = 0;
-    while (i < 3)
-	{
-        if (!(count_visible_col_top(tab, col) == clues[i]))
+
+        if (!(count_visible_col_top(tab, col) == clues[0 + col]))
             return(0);
-        if (!(count_visible_col_bottom(tab, col) == clues[i + 4]))
+        if (!(count_visible_col_bottom(tab, col) == clues[4 + col]))
             return(0);
-        i++;
-    }
+   
+        return(1);
 }
 
 int	pos_is_valid(int tab[4][4], int pos, int *clues)
@@ -267,11 +261,12 @@ int	pos_is_valid(int tab[4][4], int pos, int *clues)
 		return (0);
 	if (!is_col_valid(tab, pos))
 		return (0);
-	if (pos % 4 == 3)
+	if (pos / 4 == 4)
 	    if (!validate_col_clues(tab, pos % 4, clues))
 		    return (0);
-    if (pos / 4 == 3)
+    if (pos % 4 == 4)
             if(!validate_row_clues(tab, pos / 4, clues))
+                return(0);
 	return (1);
 }
 
@@ -327,7 +322,7 @@ int	main(int argc, char **argv)
 	print_tab(tab);
     ft_putchar('\n'); 
     ft_putstr("cuadrado latino\n");
-    solve(tab, 0);
+    solve(tab, 0, clues);
     print_tab(tab);
 	return (0);
 }
