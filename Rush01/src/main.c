@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 21:23:54 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 22:02:49 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,7 +213,7 @@ int	count_visible_col_bottom(int tab[4][4], int col)
 	}
 	return (count);
 }
-int	count_visible_row_left(int tab[4][4], int row)
+int	count_visible_col_top(int tab[4][4], int col)
 
 {
 	int i;
@@ -224,9 +224,9 @@ int	count_visible_row_left(int tab[4][4], int row)
 	max = 0;
 	while (i < 4)
 	{
-		if (tab[row][i] > max)
+		if (tab[i][col] > max)
 		{
-			max = tab[row][i];
+			max = tab[i][col];
 			count++;
 		}
 		i++;
@@ -234,16 +234,44 @@ int	count_visible_row_left(int tab[4][4], int row)
 	return (count);
 }
 
-int	pos_is_valid(int tab[4][4], int pos)
+int	validate_col_clues(int tab[4][4], int row, int *clues)
+{
+    int i;
+    i = 0;
+    while (i < 3)
+	{
+        if (!(count_visible_row_top(tab, row) == clues[i + 8]))
+            return(0);
+        if (!(count_visible_row_bottom(tab, row) == clues[i + 12]))
+            return(0);
+        i++;
+    }
+}
+int	validate_col_clues(int tab[4][4], int col, int *clues)
+{
+    int i;
+    i = 0;
+    while (i < 3)
+	{
+        if (!(count_visible_col_top(tab, col) == clues[i]))
+            return(0);
+        if (!(count_visible_col_bottom(tab, col) == clues[i + 4]))
+            return(0);
+        i++;
+    }
+}
+
+int	pos_is_valid(int tab[4][4], int pos, int *clues)
 {
 	if (!is_row_valid(tab, pos))
 		return (0);
 	if (!is_col_valid(tab, pos))
 		return (0);
-	// if (pos % 4 == 3)
-	//if (pos == 16)
-		// if (!validate_clues(tab, pos))
-		//return (0);
+	if (pos % 4 == 3)
+	    if (!validate_col_clues(tab, pos % 4, clues))
+		    return (0);
+    if (pos / 4 == 3)
+            if(!validate_row_clues(tab, pos / 4, clues))
 	return (1);
 }
 
