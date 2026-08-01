@@ -6,13 +6,29 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 19:12:31 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 19:43:05 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
 
 int	valid_chars(char *str)
 {
@@ -73,30 +89,31 @@ int	valid_format(char *str)
 	return (0);
 }
 
-int	*num_en_pos(char *str)
+void	num_en_pos(int clues[16], char *str)
 {
-	int	*ret;
 	int	i;
 	int	j;
 
-	ret = malloc(sizeof(int) * 16);
 	i = 0;
 	j = 0;
 	while (str[i] != '\0' && j < 16)
 	{
 		if (str[i] >= 48 && str[i] <= 57)
 		{
-			ret[j] = str[i] - '0';
+			clues[j] = str[i] - '0';
 			j++;
 		}
 		i++;
 	}
-	return (ret);
 }
 /*
 int	check_eq_arr(int *s1, int *s2)
 {
 	int	i;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
 	int	i;
 	int	j;
 
@@ -113,16 +130,19 @@ int	check_eq_arr(int *s1, int *s2)
 }*/
 void	print_tab(int tab[4][4])
 {
+    int i;
+    int j;
+    
 	i = 0;
 	while (i < 4)
 	{
 		j = 0;
 		while (j < 4)
 		{
-			printf("%d ", tab[i][j]);
+			ft_putchar(tab[i][j] - '0');
 			j++;
 		}
-		printf("\n");
+		ft_putchar('\n');
 		i++;
 	}
 }
@@ -151,7 +171,7 @@ int	solve(int tab[4][4], int pos)
 	{
 		tab[pos / 4][pos % 4] = try;
 		if (pos_is_valid(tab, pos))
-			if (solve(tab, clues, pos + 1))
+			if (solve(tab, pos + 1))
 				return (1);
 		tab[pos / 4][pos % 4] = 0;
 		try++;
@@ -161,6 +181,10 @@ int	solve(int tab[4][4], int pos)
 /* int	solve(int tab[4][4], int *clues, int pos)
 {
 	int	try;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
 
 	try = 1;
 	if (pos == 16)
@@ -176,7 +200,23 @@ int	solve(int tab[4][4], int pos)
 	}
 	return (0);
 } */
-
+void	init_tab(int tab[4][4])
+{
+    int i;
+    int j;
+    
+	i = 0;
+	j = 0;
+	while (i <= 3)
+	{
+		while (j <= 3)
+		{
+			tab[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
+}
 int	main(int argc, char **argv)
 {
 	int clues[16];
@@ -185,25 +225,8 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 
-	int *dev;
-	int tab[4][4];
-	int i;
-	int arr1[4];
-	int arr2[4];
-
-	*dev = num_en_pos(str);
-	tab[4][4] = {{1, 2, 3, 4}, {1, 2, 3, 4}, {1, 2, 3, 4}, {1, 2, 3, 4}};
+	num_en_pos(clues, argv[1]);
+	init_tab(tab);
 	printTab(tab);
-	i = 0;
-	while (i < 16)
-	{
-		printf("%d", dev[i]);
-		i++;
-	}
-	printf("\n");
-	free(dev);
-	arr1[4] = {7, 1, 2, 3};
-	arr2[4] = {7, 1, 8, 3};
-	printf("%d", check_eq_arr(arr1, arr2));
 	return (0);
 }
