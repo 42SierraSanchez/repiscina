@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 15:40:30 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/31 10:22:17 by asierra          ###   ########.fr       */
+/*   Updated: 2026/07/31 10:28:24 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_print_hex_addr(unsigned long addr, unsigned int cont)
 	ft_print_hex_addr(addr / 16, cont + 1);
 	ft_putchar(g_hex_base[addr % 16]);
 }
+
 void	ft_print_hex_line(unsigned char *byte_str, unsigned int count,
 		unsigned int size)
 {
@@ -57,7 +58,6 @@ void	ft_putstr_non_printable(unsigned char *str, unsigned int size)
 	ft_putstr_non_printable(str + 1, size - 1);
 }
 
-
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned char	*byte_str;
@@ -84,6 +84,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 }
 /*
 #include <stdio.h>
+
 int	main(void)
 {
 	char	*test;

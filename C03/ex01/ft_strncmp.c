@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/26 23:01:34 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/28 14:46:38 by asierra          ###   ########.fr       */
+/*   Created: 2026/07/31 13:57:12 by asierra           #+#    #+#             */
+/*   Updated: 2026/07/31 14:02:38 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	*ft_strupcase(char *str)
+int	ft_strcmp(char *s1, char *s2, unsigned int n)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (i[str] >= 97 && str[i] <= 122)
-			str[i] -= 32;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
 		i++;
-	}
-	return (str);
+	if (i == n)
+		return (0);
+	return (s1[i] - s2[i]);
 }
-
-/*int	main(void)
-{
-	char	str[] = "HoLa MunDo CrueL";
-
-	printf("%s\n", str);
-	ft_strupcase(str);
-	printf("%s\n", str);
-	return (0);
-}
-*/

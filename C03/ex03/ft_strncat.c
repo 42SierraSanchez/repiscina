@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/26 23:01:34 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/28 14:46:38 by asierra          ###   ########.fr       */
+/*   Created: 2026/07/31 14:15:51 by asierra           #+#    #+#             */
+/*   Updated: 2026/07/31 14:19:15 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	*ft_strupcase(char *str)
+char	*strncat(char *dest, const char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	dest_len;
+	unsigned int	i;
 
+	dest_len = strlen(dest);
 	i = 0;
-	while (str[i])
+	while (i < n && src[i] != '\0')
 	{
-		if (i[str] >= 97 && str[i] <= 122)
-			str[i] -= 32;
-		i++;
+		dest[dest_len + i] = src[i];
 	}
-	return (str);
+	dest[dest_len + i] = '\0';
+	return (dest);
 }
-
-/*int	main(void)
-{
-	char	str[] = "HoLa MunDo CrueL";
-
-	printf("%s\n", str);
-	ft_strupcase(str);
-	printf("%s\n", str);
-	return (0);
-}
-*/
