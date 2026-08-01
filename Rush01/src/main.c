@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 19:43:05 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 19:54:51 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,20 @@ int	check_eq_arr(int *s1, int *s2)
 	int	j;
 	int	i;
 	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i <= 3)
@@ -146,7 +160,33 @@ void	print_tab(int tab[4][4])
 		i++;
 	}
 }
+int	is_row_valid(int tab[4][4], int pos)
+{
+	int	i;
 
+	i = (pos % 4) - 1;
+	while (i >= 0)
+	{
+		if (tab[pos / 4][pos % 4] == tab[pos / 4][i])
+			return (0);
+		i--;
+	}
+	return (1);
+}
+
+int	is_col_valid(int tab[4][4], int pos)
+{
+	int	i;
+
+	i = (pos / 4) - 1;
+	while (i >= 0)
+	{
+		if (tab[pos / 4][pos % 4] == tab[i][pos % 4])
+			return (0);
+		i--;
+	}
+	return (1);
+}
 int	pos_is_valid(int tab[4][4], int pos)
 {
 	if (!is_row_valid(tab, pos))
@@ -181,6 +221,18 @@ int	solve(int tab[4][4], int pos)
 /* int	solve(int tab[4][4], int *clues, int pos)
 {
 	int	try;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
+	int	i;
+	int	j;
 	int	i;
 	int	j;
 	int	i;
@@ -227,6 +279,6 @@ int	main(int argc, char **argv)
 
 	num_en_pos(clues, argv[1]);
 	init_tab(tab);
-	printTab(tab);
+	print_tab(tab);
 	return (0);
 }
