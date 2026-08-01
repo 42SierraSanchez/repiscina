@@ -6,27 +6,27 @@
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 08:24:43 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/01 15:24:28 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/01 17:02:18 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*VALIDAR/PARSEAR/IMPRIMIR
 
-is_input_valid
+is_input_valid //
 
-parse_input
+parse_input //
 
-print_tab
+print_tab //
 
 COMPROBAR VALIDEZ
 
-is_col_valid
+is_col_valid  //
 
-it_row_valid
+it_row_valid //
 
-count_visible
+count_visible //
 
-validate_clues
+count_visible+validate_clues
 
 
 
@@ -54,6 +54,46 @@ pruebo un num
 
 
 */
+void fill_to_check(int **tab, int pos, int *to_check)
+{
+
+	int i;
+	int j;
+	
+	i = 0;
+	j = 0;
+	while (j < 4)
+		{
+			while (i < 4)
+			{
+				
+			i++;	
+			}
+			i = 0;
+		}
+}
+
+int validate_clues(tab, pos)
+{
+	int to_check[]
+	fill_to_check()
+}
+
+
+
+int pos_is_valid(int **tab, int pos)
+{
+	if (!is_row_valid(tab,pos))
+			return(0);
+	if (!is_col_valid(tab, pos))
+			return(0);
+	//if (pos % 4 == 3)
+	if (pos == 16)
+			if (!validate_clues(tab, pos))
+				return (0);
+	return(1);
+
+}
 
 int	is_row_valid(int **tab, int pos)
 {
@@ -93,7 +133,60 @@ int count_visible_row_left(int **tab, int pos)
 		{
 			if (tab[pos / 4][pos % 4] == 4)
 				break;
-			
+			if (tab[pos / 4][i] < tab[pos / 4][i + 1])
+					count++;
+		i++;
+		}
+	return (count);
+}
+
+int count_visible_row_right(int **tab, int pos)
+{
+	int i;
+	int count;
+	i = 3;
+	count = 1;
+		while (i < pos % 4)
+		{
+			if (tab[pos / 4][pos % 4] == 4)
+				break;
+			if (tab[pos / 4][i] < tab[pos / 4][i - 1])
+					count++;
+		i--;
+		}
+	return (count);
+}
+
+int count_visible_col_bottom(int **tab, int pos)
+{
+	int i;
+	int count;
+	i = 3;
+	count = 1;
+		while (i < pos % 4)
+		{
+			if (tab[pos / 4][pos % 4] == 4)
+				break;
+			if (tab[i][pos % 4] < tab[i - 1][pos % 4])
+					count++;
+		i--;
+		}
+	return (count);
+}
+
+int count_visible_col_top(int **tab, int pos)
+{
+	int i;
+	int count;
+	i = 0;
+	count = 1;
+		while (i < pos % 4)
+		{
+			if (tab[pos / 4][pos % 4] == 4)
+				break;
+			if (tab[i][pos % 4] < tab[i + 1][pos % 4])
+					count++;
+		i++;
 		}
 	return (count);
 }
@@ -109,7 +202,7 @@ int	solve(int **tab, int *clues, int pos)
 	while (try <= 4)
 	{
 		tab[pos / 4][pos % 4] = try;
-		if (is_pos_valid(tab, pos, clues))
+		if (pos_is_valid(tab, pos, clues))
 			if (solve(tab, clues, pos + 1))
 				return (1);
 		tab[pos / 4][pos % 4] = 0;
@@ -125,4 +218,6 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		retur(0);
+
+	clues = numEnPos(argv[1]);
 }
