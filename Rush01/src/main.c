@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 22:10:52 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 22:40:38 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ void	print_tab(int tab[4][4])
 		while (j < 4)
 		{
 			ft_putchar(tab[i][j] + '0');
+            if(j < 3)
+                ft_putchar(' ');
 			j++;
 		}
 		ft_putchar('\n');
@@ -247,7 +249,7 @@ int	validate_row_clues(int tab[4][4], int row, int *clues)
 int	validate_col_clues(int tab[4][4], int col, int *clues)
 {
 
-        if (!(count_visible_col_top(tab, col) == clues[0 + col]))
+        if (!(count_visible_col_top(tab, col) == clues[col]))
             return(0);
         if (!(count_visible_col_bottom(tab, col) == clues[4 + col]))
             return(0);
@@ -261,10 +263,10 @@ int	pos_is_valid(int tab[4][4], int pos, int *clues)
 		return (0);
 	if (!is_col_valid(tab, pos))
 		return (0);
-	if (pos / 4 == 4)
+	if (pos / 4 == 3)
 	    if (!validate_col_clues(tab, pos % 4, clues))
 		    return (0);
-    if (pos % 4 == 4)
+    if (pos % 4 == 3)
             if(!validate_row_clues(tab, pos / 4, clues))
                 return(0);
 	return (1);
@@ -307,22 +309,28 @@ void	init_tab(int tab[4][4])
 		i++;
 	}
 }
+int print_error(void)
+{
+    ft_putstr("Error\n");
+    return(1);    
+}
 int	main(int argc, char **argv)
 {
 	int clues[16];
 	int tab[4][4];
 
 	if (argc != 2)
-		    return (1);
+		    return(print_error());
     if (!valid_arg(argv[1]))
-           return(1);    
+          	return(print_error());
 	fill_clues(clues, argv[1]);
 	init_tab(tab);
     ft_putstr("Puesta a 0\n");
 	print_tab(tab);
     ft_putchar('\n'); 
     ft_putstr("cuadrado latino\n");
-    solve(tab, 0, clues);
+    if(!solve(tab, 0, clues))
+            return(print_error());
     print_tab(tab);
 	return (0);
 }
