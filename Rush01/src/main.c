@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 22:40:38 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 22:41:46 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -325,10 +325,7 @@ int	main(int argc, char **argv)
           	return(print_error());
 	fill_clues(clues, argv[1]);
 	init_tab(tab);
-    ft_putstr("Puesta a 0\n");
-	print_tab(tab);
     ft_putchar('\n'); 
-    ft_putstr("cuadrado latino\n");
     if(!solve(tab, 0, clues))
             return(print_error());
     print_tab(tab);
