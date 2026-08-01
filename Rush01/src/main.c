@@ -6,7 +6,7 @@
 /*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 19:54:51 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/01 19:57:27 by asierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ void	print_tab(int tab[4][4])
 		j = 0;
 		while (j < 4)
 		{
-			ft_putchar(tab[i][j] - '0');
+			ft_putchar(tab[i][j] + '0');
 			j++;
 		}
 		ft_putchar('\n');
