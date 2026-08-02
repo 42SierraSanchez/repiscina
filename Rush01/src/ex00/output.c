@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 09:59:21 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/02 10:08:59 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/02 10:42:59 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -28,16 +29,17 @@ void	ft_putstr(char *str)
 	}
 }
 
-int print_error(void)
+int	print_error(void)
 {
-    ft_putstr("Error\n");
-    return(1);    
+	ft_putstr("Error\n");
+	return (1);
 }
+
 void	print_tab(int tab[4][4])
 {
-    int i;
-    int j;
-    
+	int	i;
+	int	j;
+
 	i = 0;
 	while (i < 4)
 	{
@@ -45,8 +47,8 @@ void	print_tab(int tab[4][4])
 		while (j < 4)
 		{
 			ft_putchar(tab[i][j] + '0');
-            if(j < 3)
-                ft_putchar(' ');
+			if (j < 3)
+				ft_putchar(' ');
 			j++;
 		}
 		ft_putchar('\n');

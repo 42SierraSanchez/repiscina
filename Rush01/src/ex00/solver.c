@@ -6,9 +6,11 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 09:59:24 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/02 10:08:05 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/02 10:39:59 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int		pos_is_valid(int tab[4][4], int pos, int *clues);
 
 int	solve(int tab[4][4], int pos, int *clues)
 {
@@ -31,9 +33,9 @@ int	solve(int tab[4][4], int pos, int *clues)
 
 void	init_tab(int tab[4][4])
 {
-    int i;
-    int j;
-    
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
 	while (i <= 3)
@@ -43,7 +45,7 @@ void	init_tab(int tab[4][4])
 			tab[i][j] = 0;
 			j++;
 		}
-        j = 0;
+		j = 0;
 		i++;
 	}
 }
