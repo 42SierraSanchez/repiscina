@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 09:59:18 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/02 10:44:37 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/02 10:48:10 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	valid_arg(char *str)
 		return (0);
 	return (1);
 }
+
 void	fill_clues(int clues[16], char *str)
 {
 	int	i;
