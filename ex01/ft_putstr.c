@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/31 14:05:14 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/02 16:22:53 by asierra          ###   ########.fr       */
+/*   Created: 2026/08/02 16:42:17 by asierra           #+#    #+#             */
+/*   Updated: 2026/08/02 16:42:33 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	
-	while (src[i])
+	while (str[i])
 	{
-		dest[i] = src[j];
+		write(1, &str[i], 1);
 		i++;
-		j++;
 	}
-	dest[i] = '\0';
-	return (dest);
 }
