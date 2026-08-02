@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 char	*ft_strstr(char *str, char *to_find)
 {
 	unsigned int	i;
@@ -31,13 +29,5 @@ char	*ft_strstr(char *str, char *to_find)
 		}
 		i++;
 	}
-	return ((void *)0);
+	return (0);
 }
-/*
-int	main(void)
-{
-	char	str[] = "perr pe perros salvajes";
-	char	to_find[] = "perros";
-
-	printf("to find en str es %s", ft_strstr(str, to_find));
-}*/
