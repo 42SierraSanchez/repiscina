@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 12:56:13 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/02 21:01:55 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/02 21:02:58 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ unsigned int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
+
 unsigned int	dest_strlen(char *str, unsigned int size)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (str[i] && i < size)
+	while (i < size && str[i])
 		i++;
 	return (i);
 }
