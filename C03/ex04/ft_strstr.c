@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asierra <asierra@student.42malaga.com      +#+  +:+       +#+        */
+/*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 14:21:59 by asierra           #+#    #+#             */
-/*   Updated: 2026/07/31 14:51:16 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/02 12:58:35 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,11 @@ char	*ft_strstr(char *str, char *to_find)
 	return ("NULL");
 }
 
-#include <stdio.h>
-
+/* #include <stdio.h>
 int main (void)
 {
 char str[] = "los perros salvajes";
 char to_find[] = "perros";
 printf("to find en str es %s", ft_strstr(str, to_find));
-
-
 }
+ */

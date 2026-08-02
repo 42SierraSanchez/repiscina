@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/31 14:15:51 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/02 12:58:05 by asierra          ###   ########.fr       */
+/*   Created: 2026/08/02 12:56:13 by asierra           #+#    #+#             */
+/*   Updated: 2026/08/02 13:01:22 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strncat(char *dest, const char *src, unsigned int n)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	dest_len;
-	unsigned int	i;
+	unsigned int dest_len;
+	unsigned int i;
 
 	dest_len = strlen(dest);
 	i = 0;
-	while (i < n && src[i] != '\0')
+	while (i < size && src[i] != '\0')
 	{
 		dest[dest_len + i] = src[i];
 	}
 	dest[dest_len + i] = '\0';
-	return (dest);
+    
+	return (ft_strlen(dest) + ft_strlen(src))
 }
