@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asierra- <asierra-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 17:36:19 by asierra-          #+#    #+#             */
-/*   Updated: 2026/08/01 22:50:59 by asierra-         ###   ########.fr       */
+/*   Updated: 2026/08/02 10:02:07 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 
 void	ft_putchar(char c)
