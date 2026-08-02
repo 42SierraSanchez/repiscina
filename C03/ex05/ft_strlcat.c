@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 12:56:13 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/02 21:00:50 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/02 21:01:55 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int	j;
 
 	src_len = ft_strlen(src);
-	dest_len = dest_strlen(dest);
+	dest_len = dest_strlen(dest, size);
 	if (size == dest_len)
 		return (src_len + size);
 	i = dest_len;
