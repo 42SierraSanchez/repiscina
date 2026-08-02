@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 char	*ft_strcat(char *dest, char *src)
 {
-	unsigned int	dest_len;
 	unsigned int	i;
 
 	i = 0;
 	while (src[i])
 	{
-		dest[dest_len + i] = src[i];
+		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
