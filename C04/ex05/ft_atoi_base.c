@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:38:07 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/04 00:00:30 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 00:02:54 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	convert(char *str, char *base)
 		{
 			if (str[i] == base[j])
 			{
-				result = (result * base_size) + j
+				result = (result * base_size) + j;
 				continue;
 			}
 			else
@@ -95,7 +95,7 @@ int	ft_atoi_base(char *str, char *base)
 	i = 0;
 	neg = 1;
 	result = 0;
-	if (ft_strlen(base) < 2) || !is_valid_base(base)
+	if (ft_strlen(base) < 2 || !is_valid_base(base))
 		return (0);
 	while (ft_is_space(str[i]))
 		i++;
