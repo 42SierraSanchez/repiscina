@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 17:59:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/04 00:01:03 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 00:17:23 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,3 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	ft_putchar(base[lnb % base_size]);
 }
-/* int	main(void)
-{
-	ft_putnbr_base(-1400, "0123456789");
-	return (0);
-} */

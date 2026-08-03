@@ -6,11 +6,9 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:38:07 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/04 00:02:54 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 00:17:56 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 static int	ft_is_space(int c)
 {
@@ -73,14 +71,13 @@ int	convert(char *str, char *base)
 		while (base[j])
 		{
 			if (str[i] == base[j])
-			{
-				result = (result * base_size) + j;
-				continue;
-			}
-			else
-				return(result);
+				break ;
 			j++;
 		}
+		if (base[j])
+			result = (result * base_size) + j;
+		else
+			return (result);
 		i++;
 	}
 	return (result);
@@ -109,10 +106,4 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	result = convert(&str[i], base);
 	return (result * neg);
-}
-
-int	main(void)
-{
-	printf("result = %d\n", ft_atoi_base("12", "0123456789"));
-	return (0);
 }

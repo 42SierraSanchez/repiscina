@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 17:58:06 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/03 21:39:27 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 00:17:29 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,3 @@ int	ft_atoi(char *str)
 	}
 	return (result * neg);
 }
-
-/* #include <stdio.h>
-
-int	main(void)
-{
-	char str[] = "-2147483648";
-	printf("num es :%d\n",ft_atoi(str));
-	
-} */
