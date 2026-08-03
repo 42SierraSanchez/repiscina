@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 16:44:02 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/04 00:34:35 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 00:47:15 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr(int nb)
 		write(1, "-", 1);
 		lnb = -lnb;
 	}
-	if (lnb > 10)
+	if (lnb >= 10)
 	{
 		ft_putnbr(lnb / 10);
 	}
