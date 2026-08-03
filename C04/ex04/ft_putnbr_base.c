@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 17:59:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/04 00:59:09 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 01:00:33 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ int	is_valid_base(char *base)
 	i = 0;
 	while (base[i])
 	{
-		if ((base[i] == '+' || base[i] == '-'))
+		if (base[i] == '+' || base[i] == '-')
 			return (0);
 		i++;
 	}
 	i = 0;
-	j = 0;
 	while (base[i])
 	{
 		j = 0;
