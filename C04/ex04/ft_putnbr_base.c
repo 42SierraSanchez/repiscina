@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 17:59:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/03 22:49:53 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 00:01:03 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	long int	lnb;
 	int			base_size;
 
-	if ((ft_strlen(base) < 2) || !(is_valid_base(base)))
+	if (ft_strlen(base) < 2 || !is_valid_base(base))
 		return ;
 	base_size = ft_strlen(base);
 	lnb = nbr;
@@ -70,14 +70,14 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, "-", 1);
 		lnb = -lnb;
 	}
-	if (lnb > base_size)
+	if (lnb >= base_size)
 	{
-		ft_print_nbr(lnb / base_size, base);
+		ft_putnbr_base(lnb / base_size, base);
 	}
 	ft_putchar(base[lnb % base_size]);
 }
-int	main(void)
+/* int	main(void)
 {
 	ft_putnbr_base(-1400, "0123456789");
 	return (0);
-}
+} */

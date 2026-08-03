@@ -6,13 +6,13 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:38:07 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/03 23:42:00 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/04 00:00:30 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-static int	ft_isspace(int c)
+static int	ft_is_space(int c)
 {
 	if (c == ' ' || (c >= '\t' && c <= '\r'))
 		return (1);
@@ -73,7 +73,12 @@ int	convert(char *str, char *base)
 		while (base[j])
 		{
 			if (str[i] == base[j])
-				result = (result * base_size) + j;
+			{
+				result = (result * base_size) + j
+				continue;
+			}
+			else
+				return(result);
 			j++;
 		}
 		i++;
@@ -90,9 +95,9 @@ int	ft_atoi_base(char *str, char *base)
 	i = 0;
 	neg = 1;
 	result = 0;
-	if (!is_valid_base(base))
+	if (ft_strlen(base) < 2) || !is_valid_base(base)
 		return (0);
-	while (ft_isspace(str[i]))
+	while (ft_is_space(str[i]))
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
@@ -102,7 +107,7 @@ int	ft_atoi_base(char *str, char *base)
 		}
 		i++;
 	}
-	result = convert(str[i], base);
+	result = convert(&str[i], base);
 	return (result * neg);
 }
 
