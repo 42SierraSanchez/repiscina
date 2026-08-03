@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 17:59:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/03 21:52:30 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/03 22:49:53 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ int	is_valid_base(char *base)
 	i = 0;
 	while (base[i])
 	{
-		if (base[i] == '+' || base[i] == '-')
-			return (0);
-		if ((base[i] >= 9 && base[i] <= 13) || base[i] == ' ')
+		if ((base[i] == '+' || base[i] == '-') || (base[i] >= 9
+				&& base[i] <= 13) || base[i] == ' ')
 			return (0);
 		i++;
 	}
@@ -56,7 +55,6 @@ int	is_valid_base(char *base)
 	}
 	return (1);
 }
-
 
 void	ft_putnbr_base(int nbr, char *base)
 {

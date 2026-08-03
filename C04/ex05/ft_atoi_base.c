@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:38:07 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/02 23:22:14 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/03 23:39:55 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,15 @@ int	is_valid_base(char *base)
 	i = 0;
 	while (base[i])
 	{
-		if (base[i] == '+' || base[i] == '-')
-			return (0);
-		if ((base[i] >= 9 && base[i] <= 13) || base[i] == ' ')
+		if ((base[i] == '+' || base[i] == '-') || (base[i] >= 9
+				&& base[i] <= 13) || base[i] == ' ')
 			return (0);
 		i++;
 	}
 	i = 0;
-	j = 0;
 	while (base[i])
 	{
+		j = 0;
 		while (base[j])
 		{
 			if (base[i] == base[j] && i != j)
@@ -57,6 +56,7 @@ int	is_valid_base(char *base)
 	}
 	return (1);
 }
+
 int	convert(char *str, char *base)
 {
 	int	result;
@@ -69,11 +69,9 @@ int	convert(char *str, char *base)
 	result = 0;
 	while (str[i])
 	{
+		j = 0;
 		while (base[j])
 		{
-			j = 0;
-			if (!base[j])
-				return (result);
 			if (str[i] == base[j])
 				result = (result * base_size) + j;
 			j++;
@@ -92,7 +90,7 @@ int	ft_atoi_base(char *str, char *base)
 	i = 0;
 	neg = 1;
 	result = 0;
-	if (is_valid_base(base))
+	if (!is_valid_base(base))
 		return (0);
 	while (ft_isspace(str[i]))
 		i++;
@@ -104,7 +102,7 @@ int	ft_atoi_base(char *str, char *base)
 		}
 		i++;
 	}
-	result = convert(str, base);
+	result = convert(str[i], base);
 	return (result * neg);
 }
 
