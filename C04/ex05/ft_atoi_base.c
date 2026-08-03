@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:38:07 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/03 23:39:55 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/03 23:42:00 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ int	ft_atoi_base(char *str, char *base)
 
 int	main(void)
 {
-	printf("result = %d\n", ft_atoi_base("12", "1234567890"));
+	printf("result = %d\n", ft_atoi_base("12", "0123456789"));
 	return (0);
 }
