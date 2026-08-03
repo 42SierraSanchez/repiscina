@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 17:59:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/02 22:32:04 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/03 21:52:30 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	is_valid_base(char *base)
 	j = 0;
 	while (base[i])
 	{
+		j = 0;
 		while (base[j])
 		{
 			if (base[i] == base[j] && i != j)
@@ -56,11 +57,14 @@ int	is_valid_base(char *base)
 	return (1);
 }
 
-void	ft_print_nbr(int nbr, char *base, int count)
+
+void	ft_putnbr_base(int nbr, char *base)
 {
 	long int	lnb;
 	int			base_size;
 
+	if ((ft_strlen(base) < 2) || !(is_valid_base(base)))
+		return ;
 	base_size = ft_strlen(base);
 	lnb = nbr;
 	if (lnb < 0)
@@ -68,17 +72,11 @@ void	ft_print_nbr(int nbr, char *base, int count)
 		write(1, "-", 1);
 		lnb = -lnb;
 	}
-	if (lnb > 10)
+	if (lnb > base_size)
 	{
-		ft_print_nbr(lnb / base_size, base, count + 1);
+		ft_print_nbr(lnb / base_size, base);
 	}
 	ft_putchar(base[lnb % base_size]);
-}
-void	ft_putnbr_base(int nbr, char *base)
-{
-	if (!(is_valid_base(base)))
-		return ;
-	ft_print_nbr(nbr, base, 0);
 }
 int	main(void)
 {
