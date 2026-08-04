@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 23:28:19 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/04 23:51:25 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 00:07:50 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ int	ft_strcmp(char *s1, char *s2)
 
 void	ft_sort_str_tab(char **tab, int size)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	j = 0;
 	while (j < size)
 	{
 		i = 0;
-		while (i < size - j)
+		while (i < size - 1 - j)
 		{
 			if (ft_strcmp(tab[i], tab[i + 1]) > 0)
 				ft_swap_str(&tab[i], &tab[i + 1]);
@@ -49,6 +49,7 @@ void	ft_sort_str_tab(char **tab, int size)
 		j++;
 	}
 }
+
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -63,10 +64,10 @@ void	ft_putstr(char *str)
 
 int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	ft_sort_str_tab(argv, argc - 1);
+	ft_sort_str_tab(&argv[1], argc - 1);
 	while (i < argc)
 	{
 		ft_putstr(argv[i]);
