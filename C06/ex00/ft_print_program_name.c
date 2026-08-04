@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 23:15:08 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 00:06:29 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 00:10:50 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	ft_putstr(char *str)
 
 int	main(int argc, char **argv)
 {
+	(void)argc;
 	ft_putstr(argv[0]);
 	ft_putstr("\n");
-	return (argc);
+	return (0);
 }
