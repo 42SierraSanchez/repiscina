@@ -6,18 +6,17 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 20:09:13 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 20:28:29 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 20:50:35 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	len;
 	int	i;
-	
+
 	if (min >= max)
 	{
 		*range = NULL;
@@ -30,22 +29,25 @@ int	ft_ultimate_range(int **range, int min, int max)
 	i = 0;
 	while (len)
 	{
-		*range[i] = min + i;
+		(*range)[i] = min + i;
 		i++;
 		len--;
 	}
 	return (max - min);
 }
+/*
+#include <stdio.h>
 
 int	main(void)
 {
-	int **range = NULL;
-	int i = ft_ultimate_range(range, 10, 20);
+	int *range;
+	int i = ft_ultimate_range(&range, 10, 20);
 	int j = 0;
 	while (i)
 	{
-		printf("%d\n", *range[j]);
+		printf("%d\n", range[j]);
 		j++;
 		i--;
 	}
-}
+	free(range);
+} */
