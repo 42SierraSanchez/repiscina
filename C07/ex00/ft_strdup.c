@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/05 18:46:14 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 18:57:40 by asierra          ###   ########.fr       */
+/*   Created: 2026/08/05 18:58:12 by asierra           #+#    #+#             */
+/*   Updated: 2026/08/05 19:38:04 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINT_H
-# define FT_POINT_H
+#include <stdlib.h>
 
-typedef struct s_point
+int	ft_strlen(char *str)
 {
-	int	x;
-	int	y;
-}		t_point;
+	int	i;
 
-#endif
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	char *dup;
+	int i;
+
+	i = 0;
+	dup = malloc((ft_strlen(src) * sizeof(char) + 1)) if (!dup) return (NULL);
+
+	while (src[i])
+	{
+		dup[i] = src[i] i++;
+	}
+	dup[i + 1] = '\0' return (dup)
+}
