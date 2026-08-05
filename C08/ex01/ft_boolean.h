@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 17:49:28 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 18:23:57 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 18:27:13 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 # define FT_BOOLEAN_H
 # include <unistd.h>
 
-#define SUCCESS 0
-#define EVEN(nbr) ((nbr) % 2 == 0)
-#define EVEN_MSG "I have an even number of arguments.\n"
-#define ODD_MSG "I have an odd number of arguments.\n"
+# define SUCCESS 0
+# define EVEN(nbr) ((nbr) % 2 == 0)
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define FALSE 0,
+# define TRUE 1
 
+typedef int	t_bool;
 
-
-typedef int e_bool
-{
-	FALSE 0,
-	TRUE 1
-}	t_bool;
-
-void	ft_putstr(char *str);
+void		ft_putstr(char *str);
 
 #endif
