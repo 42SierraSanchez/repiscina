@@ -6,13 +6,13 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 12:04:29 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 12:18:35 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 12:18:54 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	long div;
+	long    div;
 
 	div = 2;
 	if (nb < 2)
