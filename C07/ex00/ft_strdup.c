@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 18:58:12 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 19:44:41 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 20:06:21 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	ft_strlen(char *str)
 
 char	*ft_strdup(char *src)
 {
-	char *dup;
-	int i;
+	char	*dup;
+	int		i;
 
 	i = 0;
-	dup = malloc((ft_strlen(src) * sizeof(char) + 1));
+	dup = malloc((ft_strlen(src) + 1) * sizeof(char));
 	if (!dup)
 		return (NULL);
 	while (src[i])
@@ -37,5 +37,5 @@ char	*ft_strdup(char *src)
 		i++;
 	}
 	dup[i] = '\0';
-	return (dup)
+	return (dup);
 }
