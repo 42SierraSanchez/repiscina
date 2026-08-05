@@ -6,20 +6,19 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 11:47:38 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 12:02:46 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 12:07:11 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int candidate;
-    long candidate_sqr;
-	
-    candidate = 0;
-    
+	int		candidate;
+	long	candidate_sqr;
+
+	candidate = 0;
 	while (candidate <= nb)
 	{
-        candidate_sqr = (long)candidate * (long)candidate;
+		candidate_sqr = (long)candidate * (long)candidate;
 		if (candidate_sqr == nb)
 			return (candidate);
 		if (candidate_sqr > nb)

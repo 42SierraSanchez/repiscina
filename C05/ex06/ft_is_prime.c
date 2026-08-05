@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/04 02:18:43 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 12:06:47 by asierra          ###   ########.fr       */
+/*   Created: 2026/08/05 12:04:29 by asierra           #+#    #+#             */
+/*   Updated: 2026/08/05 12:18:35 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power)
+int	ft_is_prime(int nb)
 {
-	int	result;
+	long div;
 
-	result = 1;
-	if (power < 0)
+	div = 2;
+	if (nb < 2)
 		return (0);
-	while (power)
+	while (div <= nb / div)
 	{
-		result *= nb;
-		power--;
+		if (nb % div == 0)
+			return (0);
+		div++;
 	}
-	return (result);
+	return (1);
 }
