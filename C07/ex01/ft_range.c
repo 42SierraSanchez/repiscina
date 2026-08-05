@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/05 18:58:12 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 19:44:41 by asierra          ###   ########.fr       */
+/*   Created: 2026/08/05 19:45:35 by asierra           #+#    #+#             */
+/*   Updated: 2026/08/05 19:58:38 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strlen(char *str)
+int	count(int min, int max)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (max > min)
+	{
+		max--;
 		i++;
+	}
 	return (i);
 }
 
-char	*ft_strdup(char *src)
+int	*ft_range(int min, int max)
 {
-	char *dup;
+	int *arr;
+	int len;
 	int i;
 
-	i = 0;
-	dup = malloc((ft_strlen(src) * sizeof(char) + 1));
-	if (!dup)
+	if (min > max)
 		return (NULL);
-	while (src[i])
-	{
-		dup[i] = src[i];
+	len = count(min, max);
+	arr = malloc(len * sizeof(int));
+	if (!arr)
+		return ((NULL)i = 0);
+	while (len)
+		{
+		arr[i] = min + i;
 		i++;
-	}
-	dup[i] = '\0';
-	return (dup)
+		len--;
+		}
 }
