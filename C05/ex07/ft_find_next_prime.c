@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 13:26:27 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 13:58:01 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 13:58:32 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_find_next_prime(int nb)
 	while (1)
 	{
 		if (ft_is_prime(next_prime))
-			return(next_prime);
+			return (next_prime);
 		next_prime++;
 	}
 }
