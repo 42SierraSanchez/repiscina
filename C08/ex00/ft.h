@@ -6,13 +6,12 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 17:45:38 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 17:48:52 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 18:03:21 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef
+#ifndef FT_H
 # define FT_H
-# include <unistd.h>
 
 void	ft_putchar(char c);
 void	ft_swap(int *a, int *b);
