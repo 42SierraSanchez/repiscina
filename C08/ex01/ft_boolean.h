@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 17:49:28 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 18:00:30 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 18:01:42 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 typedef enum e_bool
 {
 	FALSE,
-	TRUE.
+	TRUE
 }	t_bool;
 
 void	ft_putstr(char *str);
