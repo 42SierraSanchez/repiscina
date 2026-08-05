@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 13:26:27 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 13:58:32 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 14:00:44 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int	ft_is_prime(int nb)
 int	ft_find_next_prime(int nb)
 {
 	int	next_prime;
-	int	i;
 
-	next_prime = nb;
+	if (nb < 2)
+		next_prime == 2;
+	else
+		next_prime = nb;
 	while (1)
 	{
 		if (ft_is_prime(next_prime))
