@@ -6,13 +6,12 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 18:27:56 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 18:29:27 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/05 18:45:15 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS
-# define FT_ABS
-#define ABS(Value) (-(Value))
-
+#ifndef FT_ABS_H
+# define FT_ABS_H
+# define ABS(Value) ((Value) < 0 ? -(Value) : (Value))
 
 #endif
