@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 20:54:56 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/06 11:42:40 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/06 11:50:37 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,14 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			k++;
 		}
 		l = 0;
-		while (!strs[i][j] && sep[l] && i < size - 1)
+		if (i < size - 1)
 		{
-			res[k] = sep[l];
-			l++;
-			k++;
+			while (sep[l])
+			{
+				res[k] = sep[l];
+				l++;
+				k++;
+			}
 		}
 		i++;
 	}
@@ -77,9 +80,9 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 int	main(void)
 {
-	int size = 3;
-	char *strs[] = {"Hola", "mundo", "cruel"};
-	char *sep = "iii";
+	int size = 4;
+	char *strs[] = {"Hola", "", "mundo", "cruel"};
+	char *sep = "--";
 	char *res = ft_strjoin(size, strs, sep);
 	printf("%s\n", res);
 	free(res);
