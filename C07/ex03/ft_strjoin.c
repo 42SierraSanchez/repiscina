@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 20:54:56 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/06 13:21:12 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/06 13:22:26 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	k = 0;
 	while (i < size)
 	{
-		k = ft_cat(&res[k], strs[i]);
+		k += ft_cat(&res[k], strs[i]);
 		if (i < size - 1)
-			k = ft_cat(&res[k], sep[i]);
+			k += ft_cat(&res[k], sep);
 		i++;
 	}
 	res[k] = '\0';
