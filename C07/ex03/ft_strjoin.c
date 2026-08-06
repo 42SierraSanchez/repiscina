@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 20:54:56 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/06 13:22:26 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/06 13:31:08 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	ft_cat(char *dest, char *src)
 	}
 	return (i);
 }
+
 int	calc_total_len(int size, char **strs, char *sep)
 {
 	int	total_len;
@@ -47,7 +48,16 @@ int	calc_total_len(int size, char **strs, char *sep)
 		i++;
 	}
 	total_len += (size - 1) * ft_strlen(sep);
-	return(total_len);
+	return (total_len);
+}
+
+char *fill_empty_line(char *empty_line)
+{
+	empty_line = malloc(1);
+		if (!empty_line)
+			return (NULL);
+		empty_line[0] = '\0';
+		return (empty_line);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
@@ -57,13 +67,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		k;
 
 	if (size == 0)
-	{
-		res = malloc(1);
-		if (!res)
-			return (NULL);
-		res[0] = '\0';
-		return (res);
-	}
+		return (res = fill_empty_line(res));
 	res = malloc((calc_total_len(size, strs, sep) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
@@ -79,6 +83,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	res[k] = '\0';
 	return (res);
 }
+
 #include <stdio.h>
 
 int	main(void)
