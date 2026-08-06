@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 20:54:56 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 21:49:01 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/06 11:31:53 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,17 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		total_len;
 	int		i;
 	int		j;
-	int k;
+	int		k;
+	int		l;
 
 	if (size == 0)
-		return ("\0");
+	{
+		res = malloc(2);
+		if (!res)
+			return (NULL);
+		res = "\0";
+		return (res);
+	}
 	i = 0;
 	total_len = 0;
 	while (i <= size)
@@ -40,12 +47,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	total_len += (size - 1) * ft_strlen(sep);
-	res = malloc(total_len + 1 * sizeof(char));
+	res = malloc((total_len + 1) * sizeof(char));
 	if (!res)
-		return ("\0");
+		return (NULL);
 	i = 0;
 	k = 0;
-	while (i <= size)
+	while (i < size)
 	{
 		j = 0;
 		while (strs[i][j])
@@ -53,13 +60,19 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			res[k] = strs[i][j];
 			j++;
 			k++;
+			l = 0;
+			while (!strs[i][j] && sep[l])
+			{
+				res[k] = sep[l];
+				l++;
+				k++;
+			}
 		}
-		res[k] = *sep;
 		k++;
 		i++;
 	}
 	res[k] = '\0';
-	 return (res);
+	return (res);
 }
 #include <stdio.h>
 
@@ -67,8 +80,8 @@ int	main(void)
 {
 	int size = 3;
 	char *strs[] = {"Hola", "mundo", "cruel"};
-	char sep = 'i'; 
-	char *res = ft_strjoin(size, strs, &sep);
+	char *sep = "iii";
+	char *res = ft_strjoin(size, strs, sep);
 	printf("%s\n", res);
 	free(res);
 	return (0);
