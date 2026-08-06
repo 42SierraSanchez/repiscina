@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 20:54:56 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/06 13:16:54 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/06 13:21:12 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_cat(char *dest, char *src)
+int	ft_cat(char *dest, char *src)
 {
 	unsigned int	i;
 
@@ -32,7 +32,7 @@ char	*ft_cat(char *dest, char *src)
 		dest[i] = src[i];
 		i++;
 	}
-	return (dest);
+	return (i);
 }
 int	calc_total_len(int size, char **strs, char *sep)
 {
@@ -47,6 +47,7 @@ int	calc_total_len(int size, char **strs, char *sep)
 		i++;
 	}
 	total_len += (size - 1) * ft_strlen(sep);
+	return(total_len);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
@@ -70,9 +71,9 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	k = 0;
 	while (i < size)
 	{
-		res = ft_cat(&res[k], strs[i]);
+		k = ft_cat(&res[k], strs[i]);
 		if (i < size - 1)
-			res = ft_cat(&res[k], strs[i]);
+			k = ft_cat(&res[k], sep[i]);
 		i++;
 	}
 	res[k] = '\0';
