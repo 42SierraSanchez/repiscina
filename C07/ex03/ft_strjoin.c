@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 20:54:56 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/06 13:31:08 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/06 13:36:14 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,15 @@ int	calc_total_len(int size, char **strs, char *sep)
 	return (total_len);
 }
 
-char *fill_empty_line(char *empty_line)
+char	*fill_empty_line(void)
 {
+	char	*empty_line;
+
 	empty_line = malloc(1);
-		if (!empty_line)
-			return (NULL);
-		empty_line[0] = '\0';
-		return (empty_line);
+	if (!empty_line)
+		return (NULL);
+	empty_line[0] = '\0';
+	return (empty_line);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
@@ -67,7 +69,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		k;
 
 	if (size == 0)
-		return (res = fill_empty_line(res));
+		return (fill_empty_line());
 	res = malloc((calc_total_len(size, strs, sep) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
@@ -84,7 +86,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (res);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
@@ -95,4 +97,4 @@ int	main(void)
 	printf("%s\n", res);
 	free(res);
 	return (0);
-}
+} */
