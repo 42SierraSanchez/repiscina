@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:09:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/06 19:13:15 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/06 19:47:01 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	is_valid_base(char *base)
 		}
 		i++;
 	}
-	return (1);
+	return (i);
 }
 
 int	convert(char *str, char *base)
