@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:13:04 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 11:12:43 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 11:19:51 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,24 @@ int	ft_base_number_len(long nbr, char *base, int base_len)
 	return (len);
 }
 
-void	ft_fill_char(int nbr, char *base, int base_size, char *conversion)
+void	ft_fill_char(long nbr, char *base, int base_size, char *conversion)
 {
 	int	len;
 
+	
 	len = ft_base_number_len(nbr, base, base_size);
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		conversion[0] = '-';
+	}
 	conversion[len--] = '\0';
-	while (len)
+	while (len >= 0)
 	{
 		conversion[len] = base[nbr % base_size];
 		nbr /= base_size;
 		len--;
 	}
-	if (nbr < 0)
-		conversion[0] = '-';
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
@@ -65,7 +69,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	len = ft_base_number_len(nbr_int, base_to, base_to_size);
 	conversion = malloc(len + 1);
 	if (!conversion)
-		return ("ERROR");
+		return (NULL);
 	ft_fill_char(nbr_int, base_to, base_to_size, conversion);
 	return (conversion);
 }
