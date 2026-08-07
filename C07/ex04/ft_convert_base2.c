@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:13:04 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 11:34:46 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 11:47:00 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_fill_char(long nbr, char *base, int base_size, char *conversion)
 	if (nbr == 0)
 	{
 		conversion[0] = 0;
-		return;
+		return ;
 	}
 	if (nbr < 0)
 	{
