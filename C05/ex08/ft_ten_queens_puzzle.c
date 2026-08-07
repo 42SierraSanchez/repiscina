@@ -6,13 +6,13 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 14:03:36 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/05 17:12:13 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 13:21:03 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-ft_print_arr(int arr[10])
+void ft_print_arr(int arr[10])
 {
 	int	i;
 
@@ -24,10 +24,28 @@ ft_print_arr(int arr[10])
 	}
 }
 
-solve(int arr[10], row)
+int check_mate(int arr[10], int pos)
 {
-
 	
+}
+
+int solve(int arr[10], int pos)
+{
+	int try;
+	
+	try = 0;
+	if (pos == 10)
+		return(1); 
+	while (try <= 9)
+	{
+		arr[pos] = try;
+		if (check_mate(arr, pos))
+			if (solve(arr,  pos + 1))
+				return(1);
+		arr[pos] = 0;
+		try++;
+	}
+	return(0); //exit?//
 }
 
 int	ft_ten_queens_puzzle(void)
