@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:13:04 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 10:53:21 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 10:59:21 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		is_valid_base(char *base);
 int		convert(char *str, char *base);
 int		ft_atoi_base(char *str, char *base);
 
-int	ft_base_number_len(int nbr, char *base)
+int	ft_base_number_len(int nbr, char *base, int base_len)
 {
 	int		len;
 	long	lnb;
@@ -30,7 +30,7 @@ int	ft_base_number_len(int nbr, char *base)
 		len++;
 		lnb = -lnb;
 	}
-	while (lnb /= 10)
+	while (lnb /= base_len)
 		len++;
 	return (len);
 }
@@ -39,7 +39,7 @@ void	ft_fill_char(int nbr, char *base, int base_size, char *conversion)
 {
 	int	len;
 
-	len = ft_base_number_len(nbr, base);
+	len = ft_base_number_len(nbr, base, base_size);
 	conversion[len--] = '\0';
 	while (len)
 	{
@@ -57,15 +57,15 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		nbr_int;
 	int		len;
 
-	nbr_int = ft_atoi_base(nbr, base_from);
-	len = ft_base_number_len(nbr_int, base_to);
-	conversion = malloc(len);
-	if (!conversion)
-		return ("ERROR");
 	base_from_size = is_valid_base(base_from);
 	base_to_size = is_valid_base(base_to);
 	if (!base_from_size || !base_to_size)
 		return (NULL);
+	nbr_int = ft_atoi_base(nbr, base_from);
+	len = ft_base_number_len(nbr_int, base_to, base_to_size);
+	conversion = malloc(len);
+	if (!conversion)
+		return ("ERROR");
 	ft_fill_char(nbr_int, base_to, base_to_size, conversion);
 	return (conversion);
 }
