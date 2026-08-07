@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 14:03:36 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 14:05:19 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 14:08:29 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ int	check_mate(int arr[10], int pos)
 
 int	solve(int arr[10], int pos)
 {
+	int solutions;
 	int	try;
+	solutions = 0;
 	if (pos == 10)
 	{
 		ft_print_arr(arr);
@@ -55,7 +57,7 @@ int	solve(int arr[10], int pos)
 	{
 		arr[pos] = try;
 		if (check_mate(arr, pos))
-			 solve(arr, pos + 1);
+			solutions += solve(arr, pos + 1);
 		
 		try++;
 	}
@@ -64,11 +66,9 @@ int	solve(int arr[10], int pos)
 
 int	ft_ten_queens_puzzle(void)
 {
-	int solutions;
 	int	arr[10];
 	
-	solutions += solve(arr, 0); 
-	return (solutions)
+	return (solve(arr, 0));
 }
 
 #include <stdio.h>
