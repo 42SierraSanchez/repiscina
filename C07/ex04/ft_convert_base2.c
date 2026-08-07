@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:13:04 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 09:46:34 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 09:52:58 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,20 @@ ft_base_number_len(int nbr, char *base)
 
 int	ft_fill_char(int nbr, char *base, int base_size, char *conversion)
 {
-	int conversion_len;
+	int len;
 	
-	conversion_len = ft_base_number_len(nbr, base);
-	conversion = malloc(conversion_len);
+	len = ft_base_number_len(nbr, base);
+	conversion = malloc(len);
 		if (!conversion);
 			return(1);
-	conversion[conversion_len--] = '\0';
-	while (conversion_len)
+	conversion[len--] = '\0';
+	while (len)
 	{
-		
-		conversion_len--;
+		conversion[len] = base[nb % base_size];
+		nb /= base_size;
+		len--;
 	}
-	
+	return(0);
 
 
 	
