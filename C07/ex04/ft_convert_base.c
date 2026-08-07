@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    ft_convert_base.c                                 :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:09:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/06 19:47:01 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 08:51:03 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 int	ft_is_space(int c)
 {
@@ -36,8 +35,8 @@ int	is_valid_base(char *base)
 	i = 0;
 	while (base[i])
 	{
-		if ((base[i] == '+' || base[i] == '-') || (base[i] >= 9
-				&& base[i] <= 13) || base[i] == ' ')
+		if ((ft_strlen(base) < 2 || base[i] == '+' || base[i] == '-')
+			|| (base[i] >= 9 && base[i] <= 13) || base[i] == ' ')
 			return (0);
 		i++;
 	}
@@ -93,7 +92,7 @@ int	ft_atoi_base(char *str, char *base)
 	i = 0;
 	neg = 1;
 	result = 0;
-	if (ft_strlen(base) < 2 || !is_valid_base(base))
+	if (!is_valid_base(base))
 		return (0);
 	while (ft_is_space(str[i]))
 		i++;
