@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:09:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 11:07:47 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 11:22:31 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int	convert(char *str, char *base)
 
 long	ft_atoi_base(char *str, char *base)
 {
-	int	i;
-	int	neg;
+	int		i;
+	int		neg;
 	long	result;
 
 	i = 0;
