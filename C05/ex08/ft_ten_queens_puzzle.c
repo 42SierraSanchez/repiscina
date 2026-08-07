@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 14:03:36 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 14:08:29 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 14:09:54 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	solve(int arr[10], int pos)
 		
 		try++;
 	}
-	return (0);
+	return (solutions);
 }
 
 int	ft_ten_queens_puzzle(void)
