@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:13:04 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 12:14:11 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 12:19:34 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	ft_base_number_len(long nbr, int base_len)
 		len++;
 		nbr = -nbr;
 	}
+	if (nbr == 0)
+		return (1);
 	while (nbr)
 	{
 		nbr /= base_len;
@@ -44,7 +46,7 @@ void	ft_fill_char(long nbr, char *base, int base_size, char *conversion)
 	conversion[len--] = '\0';
 	if (nbr == 0)
 	{
-		conversion[0] = 0;
+		conversion[0] = base[0];
 		return ;
 	}
 	if (nbr < 0)
@@ -84,11 +86,13 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 /* #include <stdio.h>
 int main (int argc, char **argv)
 {
+	char	*conversion;
+
 	if (argc != 4)
 		return(printf("Usage: ./test number base_from base_to"));
-	char *conversion = ft_convert_base(argv[1], argv[2], argv[3]);
-	
-	printf("Number:  %s\nBase from:  %s\nBase to:  %s\n Result:  %s\n", argv[1], argv[2], argv[3], conversion);
+	conversion = ft_convert_base(argv[1], argv[2], argv[3]);
+	printf("Number:  %s\nBase from:  %s\nBase to:  %s\n Result:  %s\n", argv[1],
+		argv[2], argv[3], conversion);
 	free(conversion);
 }
  */
