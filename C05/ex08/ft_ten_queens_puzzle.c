@@ -6,16 +6,16 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 14:03:36 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 13:42:23 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 13:45:43 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_print_arr(int arr[10])
+void	ft_print_arr(int arr[10])
 {
-	int	i;
-	char c;
+	int		i;
+	char	c;
 
 	i = 0;
 	while (i < 10)
@@ -26,40 +26,42 @@ void ft_print_arr(int arr[10])
 	}
 }
 
-int check_mate(int arr[10], int pos)
+int	check_mate(int arr[10], int pos)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < pos)
 	{
-		if (arr[i] == arr[pos] || arr[pos] - pos == arr[i] - i)
-			return(0);	
+		if (arr[i] == arr[pos] || arr[pos] - pos == arr[i] - i || arr[pos]
+			+ pos == arr[i] + i)
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
-int solve(int arr[10], int pos)
+int	solve(int arr[10], int pos)
 {
-	int try;
-	
+	int	try;
+
 	if (pos == 10)
 	{
 		ft_print_arr(arr);
-		write(1, "\n", 1);	
-		try = 0;
-	} 
+		write(1, "\n", 1);
+		return (1);
+	}
 	try = 0;
 	while (try <= 9)
 	{
 		arr[pos] = try;
 		if (check_mate(arr, pos))
-			if (solve(arr,  pos + 1))
-				return(1);
+			if (solve(arr, pos + 1))
+				return (1);
 		arr[pos] = try;
 		try++;
 	}
-	return(0); //exit?//
+	return (0); // exit?//
 }
 
 int	ft_ten_queens_puzzle(void)
