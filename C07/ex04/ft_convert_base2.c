@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:13:04 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 11:47:00 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 12:14:11 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,15 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	ft_fill_char(nbr_int, base_to, base_to_size, conversion);
 	return (conversion);
 }
+
+/* #include <stdio.h>
+int main (int argc, char **argv)
+{
+	if (argc != 4)
+		return(printf("Usage: ./test number base_from base_to"));
+	char *conversion = ft_convert_base(argv[1], argv[2], argv[3]);
+	
+	printf("Number:  %s\nBase from:  %s\nBase to:  %s\n Result:  %s\n", argv[1], argv[2], argv[3], conversion);
+	free(conversion);
+}
+ */
