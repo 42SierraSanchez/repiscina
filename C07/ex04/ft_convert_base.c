@@ -6,7 +6,7 @@
 /*   By: asierra <asierra@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:09:42 by asierra           #+#    #+#             */
-/*   Updated: 2026/08/07 11:22:31 by asierra          ###   ########.fr       */
+/*   Updated: 2026/08/07 12:22:43 by asierra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ int	is_valid_base(char *base)
 	return (i);
 }
 
-int	convert(char *str, char *base)
+long	convert(char *str, char *base)
 {
-	int	result;
-	int	i;
-	int	j;
-	int	base_size;
+	long	result;
+	int		i;
+	int		j;
+	int		base_size;
 
 	base_size = ft_strlen(base);
 	i = 0;
